@@ -1,23 +1,19 @@
 class SessionsController < ApplicationController 
 
-    def home 
-        @user = current_user
-    end
-
     def create 
-        user = User.find_by(name: params[:user][:name])
-        if user && user.authenticate(params[:user][:password])
-            session[:user_id] = user.id
-            redirect_to user_path(user)
+        admin = Admin.find_by(username: params[:admin][:username])
+        if admin && admin.authenticate(params[:admin][:password])
+            session[:user_id] = admin.id
+            redirect_to "/admin/home"
         else
             flash[:message] = "Incorrect login information, please try again."
-            redirect_to "/login"
+            redirect_to "/admin/login"
         end
     end 
 
     def destroy
         session.clear
-        redirect_to root_path
+        redirect_to "/admin/home"
     end
 
 end

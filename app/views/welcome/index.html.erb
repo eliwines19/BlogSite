@@ -1,4 +1,14 @@
 <h1>Welcome Page!</h1>
 
-<%= link_to 'All Articles', articles_path%> | 
-<%= link_to 'New Article', new_article_path%>
+<%= link_to 'All Articles', articles_path %> | 
+<%= link_to 'New Article', new_article_path %> | 
+<% if logged_in? %>
+
+    <%= link_to "Logout", admin_logout_path, method:"delete" %>
+
+<% else %>
+
+    <%= link_to 'Admin login', admin_login_path %>
+    
+<% end %>
+
