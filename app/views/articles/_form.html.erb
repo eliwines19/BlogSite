@@ -1,26 +1,28 @@
-<%= form_with(model: @article, local: true, html: { class: 'form-horizontal' }) do |form| %>
+<section id="article-form-partial">
+  <%= form_with(model: @article, local: true, html: { class: 'form-horizontal' }) do |form| %>
 
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@article.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+    <% if @article.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@article.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+      Article Title: <%= form.text_field :title %>
+      <br><br>
+
+      Article Content: <br>
+      <%= form.text_area :text, size: "100x15" %>
+      <br>
+
+      <%= form.submit %>
+
   <% end %>
-
-    Article Title: <%= form.text_field :title %>
-    <br><br>
-
-    Article Content: <br>
-    <%= form.text_area :text, size: "100x15" %>
-    <br>
-
-    <%= form.submit %>
-
-<% end %>
+</section>
