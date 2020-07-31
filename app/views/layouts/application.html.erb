@@ -7,13 +7,265 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+
+      *{
+        text-align:center;
+        text-decoration:none;
+        list-style:none;
+        margin:0px;
+        padding:0px;
+        outline:none;
+      }
+
+      body{
+        margin:0px;
+        padding:0px;
+        font-family: Gill Sans, sans-serif;
+      }
+
+      section{
+        width:100%;
+        max-width:1200px;
+        margin:0px auto;
+        display:table;
+        position:relative;
+      }
+
+      h1{
+        margin:0px auto;
+        display:table;
+        font-size:26px;
+        padding:40px 0px;
+        color:#002e5b;
+        text-align:center;
+      }
+      
+      h1 span{font-weight:500;}
+
+      header{
+        width:100%; 
+        display:table; 
+        background-color:black; 
+        margin-bottom:50px;
+      }
+      
+      #logo{
+        float:left; 
+        font-size:28px; 
+        text-transform:uppercase; 
+        color:green; 
+        font-weight:600; 
+        padding:20px 0px;
+      }
+
+      #logo:hover{color:white;}
+      
+      nav{
+        width:auto; 
+        float:right;
+      }
+      
+      nav ul{
+        display:table; 
+        float:right;
+      }
+
+      nav ul li{
+        float:left;
+      }
+
+      nav ul li:last-child{
+        padding-right:0px;
+      }
+
+      nav ul li a{
+        background-color:black;
+        color:green; 
+        font-size:18px; 
+        padding: 26px 20px; 
+        display:inline-block; 
+        transition: all 0.5s ease 0s;
+      }
+
+      nav ul li a:hover{
+        background-color:green; 
+        color:white; 
+        transition: all 0.5s ease 0s;
+      }
+
+      nav ul li a:hover i{
+        color:purple; 
+        transition: all 0.5s ease 0s;
+      }
+
+      nav ul li a i{
+        padding-right:10px; 
+        color:yellow; 
+        transition: all 0.5s ease 0s;
+      }
+
+      .toggle-menu ul{
+        display:table; 
+        width:25px;
+      }
+
+      .toggle-menu ul li{
+        width:100%; 
+        height:3px; 
+        background-color:green; 
+        margin-bottom:4px;
+      }
+
+      .toggle-menu ul li:last-child{
+        margin-bottom:0px;
+      }
+
+      input[type=checkbox], label{display:none;}
+
+      .content{
+        display:table; 
+        margin-bottom:60px; 
+        width:900px;
+      }
+
+      .content h2{
+        font-size:18px; 
+        font-weight:500; 
+        color:#002e5b; 
+        border-bottom:1px solid #fde428; 
+        display:table; 
+        padding-bottom:10px; 
+        margin-bottom:10px;
+      }
+
+      .content p{
+        font-size:14px; 
+        line-height:22px; 
+        color:#7c7c7c; 
+        text-align:justify;
+      }
+
+      footer{
+        display:table;
+        padding-bottom:30px; 
+        width:100%;
+      }
+
+      .social{
+        margin:0px auto; 
+        display:table; 
+        display:table;
+      }
+
+      .social li{
+        float:left; 
+        padding:0px 10px;
+      }
+
+      .social li a{
+        color:#002e5b; 
+        transition: all 0.5s ease 0s;
+      }
+
+      .social li a:hover{
+        color:#fde428; 
+        transition: all 0.5s ease 0s;
+      }
+
+      @media only screen and (max-width: 1440px) {
+        section{max-width:95%;}
+      }
+
+      @media only screen and (max-width: 980px) {
+          header{padding:20px 0px;}
+          #logo{padding:0px;}
+          input[type=checkbox] {position: absolute; top: -9999px; left: -9999px; background:none;}
+          input[type=checkbox]:fous{background:none;}
+          label {float:right; padding:8px 0px; display:inline-block; cursor:pointer; }
+          input[type=checkbox]:checked ~ nav {display:block;
+        }
+
+        nav{
+          display:none; 
+          position:absolute; 
+          right:0px; 
+          top:53px; 
+          background-color:#002e5b; 
+          padding:0px; 
+          z-index:99;
+        }
+
+        nav ul{width:auto;}
+
+        nav ul li{
+          float:none; 
+          padding:0px; 
+          width:100%; 
+          display:table;
+        }
+
+        nav ul li a{
+          color:#FFF; 
+          font-size:15px; 
+          padding:10px 20px; 
+          display:block; 
+          border-bottom: 1px solid rgba(225,225,225,0.1);
+        }
+
+        nav ul li a i{
+          color:#fde428; 
+          padding-right:13px;
+        }
+      }
+
+      @media only screen and (max-width: 980px) {
+        .content{width:90%;}
+      }
+
+      @media only screen and (max-width: 568px) {
+        h1{padding:25px 0px;}
+        h1 span{display:block;}
+      }
+
+      @media only screen and (max-width: 480px) {
+        section {max-width: 90%;}
+      }
+
+      @media only screen and (max-width: 360px) {
+        h1{font-size:20px;}
+        label{padding:5px 0px;}
+        #logo{font-size: 20px;}
+        nav{top:47px;}
+      }
+
+    </style>
   </head>
 
   <body>
 
-    <div>
-      <%= link_to 'Home Page', root_path %> | 
-    </div>
+    <h1>
+      Marijuana
+      <span>Review Website</span> 
+    </h1>
+
+    <header>
+    <section>
+      <a href="/articles" id="logo" target="_blank" >Social Media Link</a>
+
+      <label for="toggle-1" class="toggle-menu"><ul><li></li> <li></li> <li></li></ul></label>
+      <input type="checkbox" id="toggle-1">
+
+      <nav>
+        <ul>
+          <li><a href="/articles"><i class="icon-home"></i>Home</a></li>
+          <li><a href="/articles"><i class="icon-user"></i>About</a></li>
+          <li><a href="/articles"><i class="icon-thumbs-up-alt"></i>Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    </section>
 
     <%= yield %>
   </body>

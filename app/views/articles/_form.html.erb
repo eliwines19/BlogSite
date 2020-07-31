@@ -1,5 +1,5 @@
-<%= form_with(model: @article, local: true) do |form| %>
- 
+<%= form_with(model: @article, local: true, html: { class: 'form-horizontal' }) do |form| %>
+
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -13,19 +13,14 @@
       </ul>
     </div>
   <% end %>
- 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
- 
-  <p>
+
+    Article Title: <%= form.text_field :title %>
+    <br><br>
+
+    Article Content: <br>
+    <%= form.text_area :text, size: "100x15" %>
+    <br>
+
     <%= form.submit %>
-  </p>
- 
+
 <% end %>
