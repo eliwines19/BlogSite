@@ -1,0 +1,9 @@
+<% articles.each do |a| %>
+
+    <h2><%= a.title %></h2>
+    <p><%= a.text %></p>
+    <%= link_to 'Show', article_path(a) %><br>
+    <%= link_to 'Edit', edit_article_path(a)%><br>
+    <%= link_to 'Destroy', article_path(a), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
