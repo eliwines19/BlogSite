@@ -1,4 +1,4 @@
-<section id="article-form-partial">
+<section id="article-form-partial" class="new-article-form" style="text-align:center;">
   <%= form_with(model: @article, local: true, html: { class: 'form-horizontal' }) do |form| %>
 
     <% if @article.errors.any? %>

@@ -1,10 +1,41 @@
-<section id="article-partial" class="content">
-    <% articles.each do |a| %>
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <style>
 
-        <h2><%= a.title %></h2>
-        <p><%= a.text %></p>
-        <p><%= link_to 'Show', article_path(a) %></p>
-        <br>
+        @media (max-width: 700px) {
+            
+        }
 
-    <% end %>
-</section>
+        .grid-container {
+            display: grid;
+            grid-column-gap: 50px;
+            grid-row-gap:50px;
+            grid-template-columns: auto auto auto;
+            padding: 50px;
+        }
+
+        .grid-item {
+            border: 3px solid black;
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="grid-container">
+        <% articles.each do |a| %>
+        
+            <div id="article" class="grid-item">
+                <h2><%= a.title %></h2>
+                <p><%= a.text %></p>
+                <%= link_to 'Show', article_path(a) %>
+            </div>
+
+        <% end %>
+    </div>
+</body>
+</html>
